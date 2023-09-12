@@ -8,4 +8,5 @@ Each employee can request multiple leaves, and each leave request is made by one
 Each employee can attend multiple training sessions, and each training session is attended by one or more employees.
 Each employee has multiple attendance records for different dates, and each attendance record is associated with one employee.
 
-/home/toby/Documents/test/Nigerian HR App.png
+
+/home/toby/Documents/test/Nigerian HR App.png![Uploading image.png…]()
