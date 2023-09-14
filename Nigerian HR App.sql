@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS Employee CASCADE;
 
 CREATE TABLE Department (
   DepartmentID SERIAL Primary Key,
-  "DepartmentName" text
+  DepartmentName varchar
 );
 
 INSERT INTO Department
@@ -54,37 +54,37 @@ DROP TABLE IF EXISTS Payroll CASCADE;
 CREATE TABLE Payroll (
   PayrollID SERIAL Primary Key,
   PayrollType varchar,
-  FullTime text,
-  PartTime text,
   Amount int,
-  EmployeeID SERIAL Foreign Key, references Employee
+  EmployeeID int
 );
 
 INSERT INTO Payroll
-()
+(PayrollType,Amount, EmployeeID)
+VALUES
+('MonthlySalary','200','1')
 
 
 DROP TABLE IF EXISTS EmployeeType CASCADE;
 
-CREATE TABLE "EmployeeType" (
+CREATE TABLE EmployeeType (
   FullTime varchar,
   PartTime varchar
 );
 INSERT INTO EmployeeType
 (FullTime, PartTime)
 VALUES
-('MonhlySalary', 'HourlyPay')
+('MonhlySalary', 'HourlyPay');
 
 
 DROP TABLE IF EXISTS LeaveRequest CASCADE;
 
-CREATE TABLE "LeaveRequest" (
+CREATE TABLE LeaveRequest (
   LeaveRequestID SERIAL(Primary Key),
   RequestDate varchar,
   StartDate varchar,
   EndDate varchar,
   Status text(e.g., Pending, Approved, Rejected),
-  EmployeeID int(Foreign Key, references Employee)
+  EmployeeID int
 );
 INSERT INTO LeaveRequest
 (RequestDate,StartDate, EndDate,Status, EmployeeID)
@@ -94,7 +94,7 @@ VALUES
 
 DROP TABLE IF EXISTS LeaveRequest CASCADE;
 
-CREATE TABLE "TrainingSession" (
+CREATE TABLE TrainingSession (
   SessionID SERIAL Primary Key,
   SessionName text,
   SessionDate varchar,
@@ -112,8 +112,8 @@ DROP TABLE IF EXISTS AttendanceRecord CASCADE;
 CREATE TABLE AttendanceRecord (
   RecordID SERIAL (Primary Key),
   RecordDate varchar,
-  EmployeeID int(Foreign Key, references Employee),
-  SessionID int(Foreign Key, references TrainingSession)
+  EmployeeID int,
+  SessionID int
 );
 
 INSERT INTO AttendanceRecord
